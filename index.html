@@ -236,5 +236,17 @@
   <p>© 2026 Mounji MAOULIDA · Portfolio BTS SIO option SISR · Lycée Joseph-Marie Carriat, Bourg-en-Bresse</p>
 </footer>
 
+<script>
+  // Ouvre chaque lien dans un nouvel onglet (sauf e-mail et téléchargements)
+  document.querySelectorAll('a[href]').forEach(function (lien) {
+    var href = lien.getAttribute('href');
+    if (href.startsWith('mailto:') || lien.hasAttribute('download')) return;
+    lien.target = '_blank';
+    lien.rel = 'noopener noreferrer';
+  });
+</script>
+
+</body>
+</html>
 </body>
 </html>
