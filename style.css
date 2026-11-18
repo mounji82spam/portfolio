@@ -1,0 +1,87 @@
+/* Portfolio BTS SIO – feuille de style
+   Pour changer les couleurs, modifie uniquement les variables ci-dessous. */
+:root {
+  --fond: #eef2f5;
+  --carte: #ffffff;
+  --encre: #14202b;
+  --encre-douce: #46576a;
+  --trait: #cbd5de;
+  --signal: #0b6e8a;
+  --signal-fonce: #084f63;
+  --alerte: #e0a100;
+  --police-titre: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --police-texte: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--police-texte);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+a { color: var(--signal-fonce); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--alerte); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--police-titre); line-height: 1.15; margin: 0 0 .6rem; }
+h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+h3 { font-size: 1.2rem; }
+p { max-width: 68ch; margin: 0 0 1rem; }
+ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+
+/* Navigation */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1.2rem;
+  padding: .7rem clamp(1rem, 4vw, 3rem);
+  background: var(--encre); color: #fff;
+}
+.nav strong { font-family: var(--police-titre); margin-right: auto; }
+.nav a { color: #dbe6ee; text-decoration: none; font-size: .95rem; padding: .2rem 0; }
+.nav a:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+
+/* Sections */
+main > section { padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem); max-width: 68rem; margin: 0 auto; }
+main > section + section { border-top: 1px solid var(--trait); }
+
+/* Accueil */
+.accueil { padding-top: clamp(3rem, 9vw, 6rem); }
+.accueil h1 { font-size: clamp(2.6rem, 8vw, 5rem); letter-spacing: -.02em; margin-bottom: .4rem; }
+.accueil .poste { font-size: 1.3rem; color: var(--signal-fonce); font-family: var(--police-titre); margin-bottom: 1rem; }
+.invite {
+  display: inline-block; margin: 0 0 1.5rem; padding: .5rem 1rem;
+  background: var(--encre); color: #b8f0c8; border-left: 5px solid var(--alerte);
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: .95rem;
+}
+.boutons { display: flex; flex-wrap: wrap; gap: .8rem; }
+.bouton {
+  display: inline-block; padding: .7rem 1.3rem; border-radius: 4px; font-weight: 600;
+  text-decoration: none; border: 2px solid var(--signal); background: var(--signal); color: #fff;
+}
+.bouton:hover { background: var(--signal-fonce); border-color: var(--signal-fonce); }
+.bouton.secondaire { background: transparent; color: var(--signal-fonce); }
+.bouton.secondaire:hover { background: var(--carte); }
+
+/* Grilles et cartes */
+.grille { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+.carte { background: var(--carte); border: 1px solid var(--trait); border-top: 4px solid var(--signal); padding: 1.2rem 1.3rem; }
+.carte.projet { border-top-color: var(--alerte); }
+.carte dl { margin: 0; }
+.carte dt { font-weight: 700; margin-top: .6rem; }
+.carte dd { margin: 0; color: var(--encre-douce); }
+.etiquettes { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; margin: .5rem 0 0; }
+.etiquettes li { background: var(--fond); border: 1px solid var(--trait); padding: .1rem .6rem; font-size: .9rem; border-radius: 99px; }
+.a-completer { background: #fff4cc; padding: 0 .25rem; }
+
+/* Pied de page */
+footer { padding: 2rem clamp(1rem, 4vw, 3rem); background: var(--encre); color: #b9c7d3; font-size: .95rem; }
+footer p { max-width: none; margin: 0; }
+
+@media (max-width: 40rem) {
+  .nav strong { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
